@@ -1,5 +1,6 @@
-herename: Build PixelPulse debug APK
+name: Build PixelPulse debug APK
 
+# Manual run: GitHub -> Actions -> "Build PixelPulse debug APK" -> Run workflow.
 on:
   workflow_dispatch:
 
@@ -40,6 +41,7 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
 
+      # Compiler errors are what I need to fix the code, so keep the log when the build fails.
       - name: Upload build log on failure
         if: failure()
         uses: actions/upload-artifact@v4
