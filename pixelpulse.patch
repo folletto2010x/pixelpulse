@@ -6638,10 +6638,10 @@ index 0000000..543078c
 +}
 diff --git a/app/src/main/java/com/unshoo/pixelmusic/presentation/components/player/pulse/PlayerLyrics.kt b/app/src/main/java/com/unshoo/pixelmusic/presentation/components/player/pulse/PlayerLyrics.kt
 new file mode 100644
-index 0000000..727b397
+index 0000000..32a5f54
 --- /dev/null
 +++ b/app/src/main/java/com/unshoo/pixelmusic/presentation/components/player/pulse/PlayerLyrics.kt
-@@ -0,0 +1,2637 @@
+@@ -0,0 +1,2636 @@
 +package com.unshoo.pixelmusic.presentation.components.player.pulse
 +
 +import android.os.Build
@@ -6768,7 +6768,6 @@ index 0000000..727b397
 +import com.unshoo.pixelmusic.data.lyrics.pulse.LyricsTranslation
 +import com.unshoo.pixelmusic.data.lyrics.pulse.translationLanguageName
 +import com.unshoo.pixelmusic.data.lyrics.pulse.PulseUiSettings as AppSettings
-+import androidx.compose.material.icons.Icons
 +import androidx.compose.material.icons.rounded.ChevronRight
 +import androidx.compose.material.icons.rounded.MusicNote
 +import java.util.Locale
