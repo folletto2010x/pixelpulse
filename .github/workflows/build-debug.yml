@@ -1,8 +1,21 @@
 name: Build PixelPulse debug APK
 
-# Manual run: GitHub -> Actions -> "Build PixelPulse debug APK" -> Run workflow.
+# Runs by hand (Actions -> Run workflow) and on every push that touches the patch files.
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "pixelpulse.patch"
+      - "fixes/**"
+      - ".github/workflows/build-debug.yml"
+
+permissions:
+  contents: write   # lets the last step publish the result to the ci-logs branch
+
+concurrency:
+  group: build-debug
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -16,16 +29,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Keep the patch outside the working tree
-        run: cp pixelpulse.patch /tmp/pixelpulse.patch
+      - name: Keep the patches outside the working tree
+        run: |
+          mkdir -p /tmp/patches
+          cp pixelpulse.patch /tmp/patches/0000-base.patch
+          if [ -d fixes ]; then cp fixes/*.patch /tmp/patches/ 2>/dev/null || true; fi
+          ls -la /tmp/patches
 
-      - name: Check out the Pixel Music commit the patch was made against
+      - name: Check out the Pixel Music commit the patches were made against
         run: |
           git fetch origin 126dda5527d189aa6c7a0428e4081b2f5070942a || git fetch https://github.com/ianshulyadav/PixelMusicApp.git 126dda5527d189aa6c7a0428e4081b2f5070942a
           git checkout --detach 126dda5527d189aa6c7a0428e4081b2f5070942a
 
-      - name: Apply the PixelPulse patch
-        run: git apply --whitespace=nowarn /tmp/pixelpulse.patch
+      - name: Apply the patches in order
+        run: |
+          for p in $(ls /tmp/patches/*.patch | sort); do
+            echo "applying $p"
+            git apply --whitespace=nowarn "$p"
+          done
 
       - uses: actions/setup-java@v4
         with:
@@ -47,11 +68,9 @@ jobs:
             echo '## Build errors'
             echo '~~~'
             if [ -s build.log ]; then
-              grep -nE '^e: |error:|FAILED|What went wrong|Could not|Exception|denied|No such' -A3 build.log | head -80
-              echo '--- last lines ---'
-              tail -n 25 build.log
+              grep -nE '^e: |error:|FAILED|What went wrong|Could not|Execution failed' -A2 build.log | head -80
             else
-              echo "build.log is empty: the build step failed before Gradle printed anything."
+              echo "build.log is empty: the build failed before Gradle printed anything."
             fi
             echo '~~~'
           } >> "$GITHUB_STEP_SUMMARY"
@@ -63,10 +82,31 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
 
-      - name: Upload build log on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-log
-          path: build.log
-          if-no-files-found: ignore
+      # Publishes a short report to the ci-logs branch so it can be read without opening Actions.
+      - name: Publish result to the ci-logs branch
+        if: always()
+        run: |
+          {
+            echo "run: ${{ github.run_id }}"
+            echo "source commit: ${{ github.sha }}"
+            echo "result: ${{ job.status }}"
+            echo "finished: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            if [ -s build.log ]; then
+              echo "=== compiler / gradle errors ==="
+              grep -nE '^e: |error:|FAILED|What went wrong|Could not|Execution failed' -A2 build.log | head -150
+              echo
+              echo "=== last 40 lines ==="
+              tail -n 40 build.log
+            else
+              echo "build.log missing or empty (failed before Gradle)"
+            fi
+          } > /tmp/report.txt
+          rm -rf /tmp/logs && mkdir /tmp/logs && cd /tmp/logs
+          git init -q -b ci-logs
+          git config user.name "ci"
+          git config user.email "ci@users.noreply.github.com"
+          cp /tmp/report.txt last-build.txt
+          git add last-build.txt
+          git commit -qm "build ${{ github.run_id }}: ${{ job.status }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
