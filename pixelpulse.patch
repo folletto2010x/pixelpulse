@@ -9824,6 +9824,300 @@ index 4430c9b..1dfcbc3 100644
 +        <item>Just the groove for now</item>
 +    </string-array>
  </resources>
+diff --git a/app/src/main/res/values/strings_fallback_en.xml b/app/src/main/res/values/strings_fallback_en.xml
+new file mode 100644
+index 0000000..4b3aee9
+--- /dev/null
++++ b/app/src/main/res/values/strings_fallback_en.xml
+@@ -0,0 +1,288 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++  Default (English) texts for resources the code references but that the upstream snapshot
++  only defines in translations, or not at all. Without them a clean build fails with
++  "Unresolved reference" on R.string.* / R.array.*. If upstream later adds its own default
++  definitions, delete the duplicates from this file.
++-->
++<resources>
++    <string name="a11y_toggle_off">Off</string>
++    <string name="a11y_toggle_on">On</string>
++    <string name="about_link_fdroid_subtitle">Available in the F-Droid catalog</string>
++    <string name="about_link_fdroid_title">F-Droid</string>
++    <string name="about_link_source_subtitle">Browse the code and report issues</string>
++    <string name="about_link_source_title">Source code</string>
++    <string name="about_project_subtitle">Source code, releases and community links.</string>
++    <string name="about_project_title">Project</string>
++    <string name="about_support_body">Help keep the FOSS version maintained, reviewed and tested on real Android devices.</string>
++    <string name="about_support_chip_ci">CI and releases</string>
++    <string name="about_support_chip_foss">FOSS maintenance</string>
++    <string name="about_support_chip_streaming">Self-hosted music</string>
++    <string name="about_support_cta">Sponsor on GitHub</string>
++    <string name="about_support_eyebrow">GitHub Sponsors</string>
++    <string name="about_support_title">Support the project</string>
++    <string name="accounts_listenbrainz_connect">Connect</string>
++    <string name="accounts_listenbrainz_connect_failed">Couldn\'t connect. Check your token and server URL, then try again.</string>
++    <string name="accounts_listenbrainz_custom_server">Submitting to %1$s</string>
++    <string name="accounts_listenbrainz_get_token">Open listenbrainz.org</string>
++    <string name="accounts_listenbrainz_invalid_url">Enter a valid server URL, for example https://maloja.example.com/apis/listenbrainz</string>
++    <string name="accounts_listenbrainz_needs_reauth">Your token is no longer valid; reconnect to keep submitting. Queued listens are kept.</string>
++    <string name="accounts_listenbrainz_now_playing_format">%1$s — %2$s</string>
++    <string name="accounts_listenbrainz_now_playing_idle">Nothing playing right now</string>
++    <string name="accounts_listenbrainz_now_playing_label">Now submitting</string>
++    <string name="accounts_listenbrainz_reconnect">Reconnect</string>
++    <string name="accounts_listenbrainz_scrobble_jellyfin">Submit Jellyfin streams</string>
++    <string name="accounts_listenbrainz_scrobble_local">Submit local files</string>
++    <string name="accounts_listenbrainz_scrobble_navidrome">Submit Subsonic streams</string>
++    <string name="accounts_listenbrainz_server_hint">Server URL (optional)</string>
++    <string name="accounts_listenbrainz_server_supporting">Leave empty for listenbrainz.org, or enter a self-hosted server that supports the ListenBrainz API, such as Maloja.</string>
++    <string name="accounts_listenbrainz_stat_listens">Total listens</string>
++    <string name="accounts_listenbrainz_stat_queued">Queued</string>
++    <string name="accounts_listenbrainz_title">ListenBrainz</string>
++    <string name="accounts_listenbrainz_toggle_hint">If your server already submits to ListenBrainz, turn this off so listens aren\'t counted twice.</string>
++    <string name="accounts_listenbrainz_token_dialog_body">Paste your user token to submit your listens to ListenBrainz. You can find the token in your profile settings on listenbrainz.org.</string>
++    <string name="accounts_listenbrainz_token_dialog_title">Connect to ListenBrainz</string>
++    <string name="accounts_listenbrainz_token_hint">User token</string>
++    <string name="audio_bookmarks_back_to_top">Back to top</string>
++    <string name="audio_bookmarks_cd_add">Save bookmark</string>
++    <string name="audio_bookmarks_cd_open">Audio bookmarks</string>
++    <string name="audio_bookmarks_clear_filter">Clear filter</string>
++    <string name="audio_bookmarks_name_label">Bookmark name</string>
++    <string name="auth_local_network_permission_denied">Allow access to nearby devices to connect to a server on your local network.</string>
++    <string name="auth_navidrome_server_placeholder">https://music.example.com</string>
++    <string name="auth_select_libraries_confirm">Save and sync</string>
++    <string name="auth_select_libraries_subtitle">This server has more than one music library. Choose which ones to sync; you can change this later.</string>
++    <string name="auth_select_libraries_title">Choose libraries to sync</string>
++    <string name="auth_use_http">Use HTTP / VPN</string>
++    <string name="backup_encrypt_subtitle">Protect the file with a password (AES-256). You\'ll need it to restore.</string>
++    <string name="backup_encrypt_title">Encrypt backup</string>
++    <string name="backup_encrypted_prompt_body">This backup is password-protected. Enter the password to continue.</string>
++    <string name="backup_encrypted_prompt_title">Encrypted backup</string>
++    <string name="backup_password_confirm_hint">Confirm password</string>
++    <string name="backup_password_hint">Backup password</string>
++    <string name="backup_password_mismatch">Passwords don\'t match.</string>
++    <string name="backup_password_too_short">Use at least 4 characters.</string>
++    <string name="backup_unlock">Unlock</string>
++    <string name="backup_wrong_password">Wrong password. Try again.</string>
++    <string name="batch_edit_cover_art_heading">Batch cover art</string>
++    <string name="batch_edit_cover_art_hint">This will change the cover art of all %d selected songs</string>
++    <string name="batch_edit_failed">Couldn\'t update the songs</string>
++    <string name="batch_edit_info_message">Only changed fields will be updated. Leave fields empty to keep existing values.</string>
++    <string name="batch_edit_mixed_values">(Mixed values)</string>
++    <string name="batch_edit_multiple_covers">(Multiple different covers)</string>
++    <string name="batch_edit_optional">(Optional - leave empty to skip)</string>
++    <string name="batch_edit_partial_success">Updated %1$d of %2$d songs. Some files couldn\'t be edited.</string>
++    <string name="batch_edit_remove_all_art">Remove all cover art</string>
++    <string name="batch_edit_set_cover_art">Set cover art for all</string>
++    <string name="batch_edit_success">%d songs updated successfully</string>
++    <string name="batch_edit_toolbar_title">Edit %d songs</string>
++    <string name="cd_about_open_link">Open %1$s link</string>
++    <string name="cd_add_selected_albums_to_queue">Add selected albums to queue</string>
++    <string name="cd_album_art_of">Album art for %1$s</string>
++    <string name="cd_album_art_placeholder">%1$s placeholder</string>
++    <string name="cd_artist_format">Artist: %1$s</string>
++    <string name="cd_choose_song_tone">Choose how to use this song as a system sound</string>
++    <string name="cd_cover_art">Cover art</string>
++    <string name="cd_genre_illustration">Genre illustration</string>
++    <string name="cd_open_telegram_profile">Open Telegram profile</string>
++    <string name="cd_play_artist">Play artist</string>
++    <string name="cd_play_playlist">Play playlist</string>
++    <string name="cd_play_selected_albums">Play selected albums</string>
++    <string name="cd_play_selected_albums_next">Play selected albums next</string>
++    <string name="cd_show_controls">Show controls</string>
++    <string name="cd_toggle_grid_list">Toggle grid/list view</string>
++    <string name="cloud_album_download">Download album</string>
++    <string name="cloud_album_remove_downloads">Remove downloads</string>
++    <string name="cloud_download_action">Download</string>
++    <string name="cloud_download_selected">Download selected cloud tracks</string>
++    <string name="cloud_download_selected_count">Download %1$d cloud tracks</string>
++    <string name="cloud_download_selected_started">Preparing %1$d cloud tracks for offline listening</string>
++    <string name="cloud_playlist_download">Download playlist</string>
++    <string name="dash_last_synced_format">Last synced: %1$s</string>
++    <string name="dash_libraries_all">All libraries</string>
++    <string name="dash_libraries_all_subtitle">Include every library this server offers</string>
++    <string name="dash_libraries_change">Change</string>
++    <string name="dash_libraries_folder_subtitle">Include this library in the next library sync</string>
++    <string name="dash_libraries_load_failed">Couldn\'t load libraries; sync will use all of them</string>
++    <string name="dash_libraries_more_count">+%1$d more</string>
++    <string name="dash_libraries_not_music">Not a music library</string>
++    <string name="dash_libraries_selected_count">%1$d of %2$d libraries selected</string>
++    <string name="dash_libraries_sheet_subtitle">Choose which server libraries to include when the main library is synced.</string>
++    <string name="dash_libraries_sync_needed">Sync the library to apply the changes</string>
++    <string name="dash_libraries_title">Libraries</string>
++    <string name="dash_library_playlist_title">Library</string>
++    <string name="device_capabilities_advanced_diagnostics_description">Off by default. Records a short stutter timeline to help troubleshoot beta issues.</string>
++    <string name="device_capabilities_advanced_diagnostics_expires">Active until %1$s</string>
++    <string name="device_capabilities_advanced_diagnostics_mark_lag">Mark stutter now</string>
++    <string name="device_capabilities_advanced_diagnostics_marked">Stutter moment marked</string>
++    <string name="device_capabilities_advanced_diagnostics_title">Advanced performance diagnostics</string>
++    <string name="device_capabilities_report_copied">Report copied to clipboard</string>
++    <string name="device_capabilities_report_copy">Copy</string>
++    <string name="device_capabilities_report_description">A shareable diagnostic that helps us classify playback or scanning slowdowns.</string>
++    <string name="device_capabilities_report_generate">Generate report</string>
++    <string name="device_capabilities_report_regenerate">Regenerate</string>
++    <string name="device_capabilities_report_share">Share</string>
++    <string name="device_capabilities_report_share_title">PixelPlayer performance report</string>
++    <string name="device_capabilities_report_title">Performance report</string>
++    <string name="duplicates_group_count">%1$d copies</string>
++    <string name="duplicates_group_title_format">%1$s — %2$s</string>
++    <string name="duplicates_none">No duplicate tracks found.</string>
++    <string name="duplicates_summary">%1$d groups · %2$d tracks</string>
++    <string name="duplicates_title">Duplicate tracks</string>
++    <string name="edit_song_add_custom_field">Add metadata field</string>
++    <string name="edit_song_custom_field_name">Field name</string>
++    <string name="edit_song_custom_field_value">Value</string>
++    <string name="edit_song_custom_metadata_description">Give a rating from 0 to 5 or add text fields such as MOOD, COMMENT, YEAR or BPM.</string>
++    <string name="edit_song_custom_metadata_formats">Ratings and custom fields can be written to MP3, WAV, AIFF, FLAC, OGG, Opus, M4A, M4B and MP4 files.</string>
++    <string name="edit_song_custom_metadata_heading">Optional metadata</string>
++    <string name="edit_song_custom_metadata_invalid">Check the optional metadata fields.</string>
++    <string name="edit_song_rating">Rating (0–5)</string>
++    <string name="edit_song_rating_not_set">Not set</string>
++    <string name="edit_song_remove_custom_field">Remove field</string>
++    <string name="equalizer_action_save_new">Save as new</string>
++    <string name="folder_state_excluded">Excluded</string>
++    <string name="folder_state_included">Included</string>
++    <string name="language_zh_rCN">Chinese (Simplified)</string>
++    <string name="library_tab_albums">Albums</string>
++    <string name="library_tab_artists">Artists</string>
++    <string name="library_tab_folders">Folders</string>
++    <string name="library_tab_liked">Liked</string>
++    <string name="library_tab_playlists">Playlists</string>
++    <string name="library_tab_songs">Songs</string>
++    <string name="lyrics_remote_disabled">Online lyrics are turned off in Settings.</string>
++    <string name="musicbrainz_applied">MusicBrainz metadata applied</string>
++    <string name="musicbrainz_choose_match">Choose a match</string>
++    <string name="musicbrainz_lookup">Look up on MusicBrainz</string>
++    <string name="musicbrainz_lookup_failed">MusicBrainz lookup failed</string>
++    <string name="musicbrainz_match_score">Match score: %1$s</string>
++    <string name="musicbrainz_no_results">No matches found.</string>
++    <string name="musicbrainz_save_failed_fallback">Couldn\'t save the metadata.</string>
++    <string name="musicbrainz_search_failed_fallback">MusicBrainz search failed.</string>
++    <string name="musicbrainz_searching">Searching MusicBrainz…</string>
++    <string name="player_albums_added_to_queue_format">%1$d albums added to queue</string>
++    <string name="player_albums_will_play_next_format">%1$d albums will play next</string>
++    <string name="player_could_not_add_albums_next">Couldn\'t add the selected albums to play next</string>
++    <string name="player_could_not_add_albums_queue">Couldn\'t add the selected albums to the queue</string>
++    <string name="player_error_skipping">This track couldn\'t be played, skipping</string>
++    <string name="player_only_first_n_albums_added_queue">Only the first %1$d albums were added to the queue</string>
++    <string name="player_only_first_n_albums_next">Only the first %1$d albums were added to play next</string>
++    <string name="playlist_created_songs_added_toast">Playlist created and songs added</string>
++    <string name="playlist_saved_toast">Saved</string>
++    <string name="playlist_songs_added_toast">Songs added to playlists</string>
++    <string name="presentation_batch_b_playlist_empty_smart_body">No songs match this smart rule yet.</string>
++    <string name="presentation_batch_e_creation_mode_describe">Describe</string>
++    <string name="presentation_batch_e_creation_mode_describe_subtitle">Type what you want to listen to and the app picks the songs; fully offline.</string>
++    <string name="presentation_batch_e_describe_generate">Generate</string>
++    <string name="presentation_batch_e_describe_no_matches">No songs in your library match this description.</string>
++    <string name="presentation_batch_e_describe_playlist_hint">e.g. songs to lift weights to</string>
++    <string name="presentation_batch_e_describe_playlist_subtitle">Matched against the library on this device; no data leaves the device.</string>
++    <string name="presentation_batch_e_describe_playlist_title">Describe your playlist</string>
++    <string name="presentation_batch_e_describe_regenerate">Regenerate</string>
++    <string name="presentation_batch_e_describe_save">Save playlist</string>
++    <string name="presentation_batch_f_adjust_cover_hint">Pinch and drag to find the perfect frame</string>
++    <string name="presentation_batch_f_adjust_cover_title">Adjust your cover art</string>
++    <string name="presentation_batch_f_change">Change</string>
++    <string name="presentation_batch_f_edit_cover_title">Edit cover</string>
++    <string name="presentation_batch_f_remove">Remove</string>
++    <string name="presentation_batch_g_beta_sheet_welcome_body_stable">You\'re using the stable build. Open the changelog to see what\'s new.</string>
++    <string name="presentation_batch_g_changelog_sec_initial_release">Initial release</string>
++    <string name="presentation_batch_g_changelog_sec_release_readiness">Release readiness</string>
++    <string name="presentation_batch_g_changelog_sec_removed_for_foss">Removed for FOSS</string>
++    <string name="presentation_batch_g_changelog_sec_security_privacy">Security and privacy</string>
++    <string name="presentation_batch_g_changelog_sec_under_the_hood">Under the hood</string>
++    <string name="presentation_batch_g_topbar_build_debug">Debug</string>
++    <string name="presentation_batch_g_topbar_build_stable">Stable</string>
++    <string name="setcat_about_pixelplayer_subtitle">App version, contributors and more.</string>
++    <string name="setcat_about_pixelplayer_title">About this app</string>
++    <string name="setcat_app_language_desc">Choose the language used in the app interface.</string>
++    <string name="setcat_app_language_label">App language</string>
++    <string name="setcat_audio_output_mode_description">Choose how decoded PCM audio is sent to Android. Changing the mode restarts the audio output.</string>
++    <string name="setcat_audio_output_mode_direct">Direct output (experimental)</string>
++    <string name="setcat_audio_output_mode_direct_description">Uses the same sample rate as the audio on most devices to avoid unnecessary resampling.</string>
++    <string name="setcat_audio_output_mode_pcm_float">32-bit float PCM</string>
++    <string name="setcat_audio_output_mode_pcm_float_description">Gives high-resolution PCM more processing headroom. Android may still resample.</string>
++    <string name="setcat_audio_output_mode_pcm_float_unsupported">Unavailable because this device couldn\'t start a PCM_FLOAT AudioTrack.</string>
++    <string name="setcat_audio_output_mode_system_default">System default</string>
++    <string name="setcat_audio_output_mode_system_default_description">Best compatibility. Android may mix or resample the audio.</string>
++    <string name="setcat_audio_output_mode_title">Audio output mode</string>
++    <string name="setcat_external_artist_images_subtitle">Allow missing artist images to be fetched from Deezer and cached locally.</string>
++    <string name="setcat_external_artist_images_title">Artist images from Deezer</string>
++    <string name="setcat_external_lyrics_subtitle">Allow searching and manual fetching on lrclib.net when lyrics aren\'t available locally.</string>
++    <string name="setcat_external_lyrics_title">Online lyrics from LRCLIB</string>
++    <string name="setcat_find_duplicates_subtitle">Scan your library for tracks that appear more than once.</string>
++    <string name="setcat_find_duplicates_title">Find duplicate tracks</string>
++    <string name="setcat_global_now_playing_theme_subtitle">Tints the whole app with the current track\'s album art. Light and dark mode are preserved.</string>
++    <string name="setcat_global_now_playing_theme_title">Use now-playing colors across the app</string>
++    <string name="setcat_keep_screen_awake_subtitle">Stops the screen from sleeping while music plays and the app is visible.</string>
++    <string name="setcat_keep_screen_awake_title">Keep screen on while playing</string>
++    <string name="setcat_language_arabic">Arabic</string>
++    <string name="setcat_language_norwegian_bokmal">Norwegian Bokmål</string>
++    <string name="setcat_language_turkish">Turkish</string>
++    <string name="setcat_m3u_sync_disabled_subtitle">Choose an external folder to sync local playlists both ways</string>
++    <string name="setcat_m3u_sync_enabled_subtitle">Syncing with %1$s</string>
++    <string name="setcat_m3u_sync_now_subtitle">Import and export changes without overwriting conflicts</string>
++    <string name="setcat_m3u_sync_now_title">Sync playlists now</string>
++    <string name="setcat_m3u_sync_result">%1$d changed · %2$d conflicts · %3$d unresolved entries</string>
++    <string name="setcat_m3u_sync_section">Playlist sync</string>
++    <string name="setcat_m3u_sync_selected_folder">selected folder</string>
++    <string name="setcat_m3u_sync_title">Automatic M3U sync</string>
++    <string name="setcat_online_services">Optional online services</string>
++    <string name="setcat_playback_speed">Playback speed</string>
++    <string name="setcat_smart_crossfade_subtitle">Matches the crossfade duration to the songs\' tempo when BPM tags are compatible.</string>
++    <string name="setcat_smart_crossfade_title">Smart crossfade</string>
++    <string name="settings_search_hint">Search settings</string>
++    <string name="settings_search_no_results">No results for “%1$s”</string>
++    <string name="settings_search_section_related">Related settings</string>
++    <string name="settings_search_section_top_matches">Top matches</string>
++    <string name="setup_external_artist_images_description">Fetches missing artist photos from Deezer and caches them locally.</string>
++    <string name="setup_external_artist_images_title">Artist images from Deezer</string>
++    <string name="setup_external_lyrics_description">Searches lrclib.net when there are no local or embedded lyrics.</string>
++    <string name="setup_external_lyrics_title">Online lyrics from LRCLIB</string>
++    <string name="setup_external_services_footer">You can change these later in Settings > Music Management > Optional online services.</string>
++    <string name="setup_external_services_subtitle">Pixel Music can optionally use a few online services. You choose what to turn on.</string>
++    <string name="setup_external_services_title">Optional Online Services</string>
++    <string name="song_info_choose_tone">Set as sound</string>
++    <string name="song_info_ringtone_failed">Couldn\'t set ringtone: %1$s</string>
++    <string name="song_info_ringtone_local_only">Only local songs can be used as ringtones.</string>
++    <string name="song_info_ringtone_missing_file">This audio file couldn\'t be prepared as a ringtone.</string>
++    <string name="song_info_ringtone_permission_missing">Modify system settings isn\'t enabled.</string>
++    <string name="song_info_ringtone_permission_prompt">Allow Pixel Music to modify system settings, then try again.</string>
++    <string name="song_info_set_as_short">Set as:</string>
++    <string name="song_info_tone_alarm_label">alarm sound</string>
++    <string name="song_info_tone_alarm_subtitle">Clock alarms</string>
++    <string name="song_info_tone_alarm_title">Alarm sound</string>
++    <string name="song_info_tone_confirm_action">Set sound</string>
++    <string name="song_info_tone_confirm_body">Set “%1$s” as %2$s?</string>
++    <string name="song_info_tone_confirm_title">Confirm sound change</string>
++    <string name="song_info_tone_notification_label">notification sound</string>
++    <string name="song_info_tone_notification_subtitle">Messages and app notifications</string>
++    <string name="song_info_tone_notification_title">Notification sound</string>
++    <string name="song_info_tone_picker_body">Choose how this song should be used as a system sound.</string>
++    <string name="song_info_tone_picker_title">Use this song as:</string>
++    <string name="song_info_tone_ringtone_label">ringtone</string>
++    <string name="song_info_tone_ringtone_subtitle">Incoming calls</string>
++    <string name="song_info_tone_ringtone_title">Phone ringtone</string>
++    <string name="song_info_tone_success">“%1$s” set as %2$s</string>
++    <string name="sync_failed_toast">Library sync failed. Pull down to refresh and try again.</string>
++    <string name="sync_preparing_library">Preparing your library…</string>
++    <string name="sync_scanned_count">Scanned %1$d of %2$d songs</string>
++    <string-array name="presentation_batch_g_changelog_070_added">
++        <item>See the project changelog for the full list of additions.</item>
++    </string-array>
++    <string-array name="presentation_batch_g_changelog_070_whats_new">
++        <item>First public release of the FOSS build.</item>
++    </string-array>
++    <string-array name="presentation_batch_g_changelog_v020_improvements">
++        <item>Various improvements and fixes.</item>
++    </string-array>
++    <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
++        <item>Internal cleanups and dependency updates.</item>
++    </string-array>
++    <string-array name="presentation_batch_g_changelog_v020_whats_new">
++        <item>See the project changelog for what\'s new.</item>
++    </string-array>
++    <plurals name="presentation_batch_e_describe_result_count">
++        <item quantity="one">%d song matched</item>
++        <item quantity="other">%d songs matched</item>
++    </plurals>
++</resources>
 diff --git a/app/src/main/res/xml/shortcuts.xml b/app/src/main/res/xml/shortcuts.xml
 index c7ab38c..55ce921 100644
 --- a/app/src/main/res/xml/shortcuts.xml
